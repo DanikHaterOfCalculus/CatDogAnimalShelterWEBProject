@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Gallery | CatDog Animal Shelter</title>
+    <!-- Bootstrap CSS for styling -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Custom CSS -->
+    <script src="..\Script.js" defer></script>
+    <!-- External JavaScript -->
+  </head>
+  <body class="light-theme">
+      <!-- Navigation Bar -->
+      <nav class="navbar navbar-expand-lg navbar-light light-theme">
+          <div class="container">
+              <span class="navbar-brand">Pet gallery | CatDog Animal Shelter</span>
+              <button class="navbar-toggler"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#navbarNav"
+                      aria-controls="navbarNav"
+                      aria-expanded="false"
+                      aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                          <a class="nav-link" href="..\main\main.html">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="..\about_us\about_us.html">About Us</a>
+                      </li>
+                      <li class="nav-item active">
+                          <a class="nav-link" href="..\petgallery\petgallery.html">Pet Gallery <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="..\adopt\adopt.html">Adopt</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="..\donate\donate.html">Donate</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="..\contact\contact.html">Contact</a>
+                      </li>
+                  </ul>
+                  <!-- Theme toggle and login buttons -->
+                  <button id="toggleTheme" class="btn theme-toggle-btn">🌙</button>
+                  <button id="loginBtn" class="btn btn-primary ml-3">Log in</button>
+                  <span id="usernameDisplay" class="ml-3 d-none"></span>
+                  <button id="logoutBtn" class="btn btn-danger ml-2 d-none">
+                      Logout
+                  </button>
+              </div>
+          </div>
+      </nav>
+
+      <!-- Login Popup Form -->
+      <div class="login-popup" id="loginPopup">
+          <h2>Log in</h2>
+          <form id="loginForm">
+              <label for="username">Username:</label>
+              <input type="text" id="username" name="username" required />
+
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required />
+
+              <button type="submit" id="submitLogin">Log in</button>
+          </form>
+      </div>
+
+      <!-- Main Content Area -->
+      <main class="petmain">
+          <section class="text-center mb-5">
+              <h1>Pet Gallery</h1>
+              <p class="lead">
+                  Meet some of the wonderful animals waiting for their forever homes.
+                  Each one of them has a unique story and is looking for a loving
+                  family.
+              </p>
+          </section>
+          <!-- Filter Section for Pets -->
+          <div class="filter-section text-center mb-4">
+              <h2>Pet filter</h2>
+              <select id="petType" class="form-control d-inline-block w-auto">
+                  <option value="">All</option>
+                  <option value="cat">Cat</option>
+                  <option value="dog">Dog</option>
+              </select>
+              <select id="petGender" class="form-control d-inline-block w-auto">
+                  <option value="">All</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+              </select>
+              <button id="filterButton" class="btn btn-primary">Apply filters</button>
+          </div>
+          <!-- Card Deck for Pet Images -->
+          <div class="card-deck"></div>
+          <!-- Pagination Controls -->
+          <div class="pagination">
+              <button class="btn btn-primary" id="prevButton">Previous</button>
+              <button class="btn btn-primary" id="nextButton">Next</button>
+          </div>
+
+          <!-- Modal for Enlarged Pet Images -->
+          <div id="imageModal" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="modalImage" />
+          </div>
+          <!-- Current Date and Time Display -->
+          <div class="text-center my-4">
+              <p id="currentDateTime" class="font-weight-bold"></p>
+          </div>
+      </main>
+
+      <!-- Floating Phone Icon for Contact -->
+      <div class="floating-phone-icon" id="phoneIcon">📞</div>
+
+      <!-- Popup Form for Contact -->
+      <div class="popup-form light-theme" id="popupForm">
+          <button class="btn btn-secondary close-button" id="closePopup">
+              <i class="bi bi-x"></i>
+          </button>
+          <h5>Any questions?</h5>
+          <h5>Contact us!</h5>
+          <p>
+              If you have any questions, feel free to reach out. We’re here to help!
+          </p>
+          <div class="align-items-center mt-3">
+              <a href="..\contact\contact.html" class="btn btn-primary">Go to Contact Page</a>
+          </div>
+      </div>
+
+      <!-- Footer Section -->
+      <footer class="text-center mt-5 p-4 bg-primary">
+          <p class="text-white mb-0">Created by Turzhanov Danial, Ussenov Tamerlan, Kurbanaliyeva Rakhiya - September 2024</p>
+          <ul class="social-links mt-3 list-inline">
+              <li class="list-inline-item"><a href="https://facebook.com/catdog-shelter" class="text-white" target="_blank">Facebook</a></li>
+              <li class="list-inline-item"><a href="https://twitter.com/catdog-shelter" class="text-white" target="_blank">Twitter</a></li>
+              <li class="list-inline-item"><a href="https://instagram.com/catdog-shelter" class="text-white" target="_blank">Instagram</a></li>
+          </ul>
+      </footer>
+
+      <!-- Bootstrap and jQuery Scripts -->
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
