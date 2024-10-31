@@ -293,7 +293,6 @@ body.dark-theme .card {
     color: #F7F9FB;
 }
 
-
 .accordion {
     width: 100%;
     margin: 20px auto;
@@ -315,7 +314,6 @@ body.dark-theme .card {
     transition: background-color 0.3s;
 }
 
-/* ������� ���� */
 .light-theme .accordion-header {
     background-color: #cdd8e4;
 }
@@ -324,7 +322,7 @@ body.dark-theme .card {
         background-color: #cce5ff;
     }
 
-/* ������ ���� */
+
 .dark-theme .accordion-header {
     background-color: #3a3939;
 }
@@ -352,6 +350,8 @@ body.dark-theme .card {
     .btn-primary:hover {
         transform: scale(1.1) rotate(5deg);
     }
+
+
 /* Контейнер для FAQ и кота */
 
 
@@ -1048,7 +1048,6 @@ html, body {
     color: #fff;
 }
 
-
 .login-popup {
     background-color: #fff;
     color: #000;
@@ -1082,6 +1081,12 @@ html, body {
 }
 
 #submitLogin {
+    background-color: rgba(0,0,0,0.025);
+    color: #000000;
+    border: none;
+}
+
+.dark-theme #submitLogin {
     background-color: rgba(0,0,0,0.025);
     color: #fff;
     border: none;
