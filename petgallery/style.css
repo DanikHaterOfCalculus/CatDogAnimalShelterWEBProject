@@ -103,14 +103,57 @@ figure {
     }
 
 
-/* CARD MAIN PAGE*/
-.card .btn {
+#filterButton {
+    padding: 7px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+body.light-theme #filterButton {
+    background-color: #007bff; 
+    color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    body.light-theme #filterButton:hover {
+        background-color: #0056b3; 
+        color: #e9ecef;
+    }
+
+
+body.dark-theme #filterButton {
+    background-color: #222; 
+    color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+    body.dark-theme #filterButton:hover {
+        background-color: #444; 
+        color: #f8f9fa;
+    }
+
+
+
+    
+.card .btn.light-theme {
     background-color: #007bff; 
     color: #F7F9FB; 
 }
-
+.card .btn.dark-theme {
+    background-color: #030303;
+}
 body.dark-theme .card .btn {
     color: #FFFFFF; 
+}
+body.light-theme .card .btn {
+    color: #FFFFFF;
+    background-color: #007bff
+}
+body.light-theme .card .btn:hover {
+    background-color: #070062;
 }
 
 .card .btn:hover {
@@ -133,7 +176,7 @@ body.dark-theme .card .btn:hover {
 .about-shelter p {
     color: #212529; 
 }
-
+    
 body.dark-theme .about-shelter h2 {
     color: #FFFFFF; 
 }
@@ -244,9 +287,9 @@ body.dark-theme .theme-toggle-btn {
     max-width: 1200px;
 }
 
-button {
+button.light-theme {
     cursor: pointer;
-    background-color: #31708E;
+    background-color: #000000;
     color: #F7F9FB;
     padding: 12px;
     border: none;
@@ -255,10 +298,22 @@ button {
     transition: background-color 0.3s;
 }
 
-    button:hover {
+    button:hover.light-theme {
         background-color: #245B7A;
     }
-
+button.dark-theme {
+    cursor: pointer;
+    background-color: #E94E77;
+    color: #F7F9FB;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+    button:hover.dark-theme{
+        background-color: #0a0c45
+    }
 footer {
     background-color: #31708E;
     color: #F7F9FB;
@@ -475,32 +530,61 @@ main {
 .popup-form button {
     margin-top: 10px !important;
 }
+
 .pagination {
-    display: flex; 
-    justify-content: center; 
-    margin: 20px 0; 
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
 }
 
+    
     .pagination button {
         background-color: #053d7a; 
-        color: #FFFFFF; 
-        border: none; 
-        padding: 10px 15px; 
-        margin: 5px; 
-        cursor: pointer; 
-        border-radius: 5px; 
-        transition: background-color 0.3s; 
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        margin: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-        .pagination button:hover {
-            background-color: #0a0c45; 
-        }
 
-        .pagination button:disabled {
-            background-color: #ccc; 
-            color: #666; 
-            cursor: not-allowed; 
-        }
+body.light-theme .pagination button {
+    background-color: #007bff; 
+    color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    body.light-theme .pagination button:hover {
+        background-color: #0056b3; 
+        transform: translateY(-2px);
+    }
+
+    body.light-theme .pagination button:disabled {
+        background-color: #ccc; 
+        color: #666; 
+        cursor: not-allowed;
+    }
+
+
+body.dark-theme .pagination button {
+    background-color: #222;
+    color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+    body.dark-theme .pagination button:hover {
+        background-color: #444; 
+        transform: translateY(-2px); 
+    }
+
+    body.dark-theme .pagination button:disabled {
+        background-color: #555; 
+        color: #bbb; 
+        cursor: not-allowed;
+    }
+
 .modal {
     display: none; 
     position: fixed;
@@ -607,7 +691,7 @@ main {
     color: #fff;
     border: none;
 }
-/* Register popup style (similar to login-popup) */
+
 .register-popup {
     position: absolute;
     background-color: #fff;
@@ -625,7 +709,7 @@ main {
         transform: translateY(10px);
     }
 
-/* Theme-specific styles */
+
 .dark-theme .register-popup {
     background-color: #121E26;
     color: #fff;

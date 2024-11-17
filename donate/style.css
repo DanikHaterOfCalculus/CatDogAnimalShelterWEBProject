@@ -196,6 +196,26 @@ body.dark-theme button {
     .close-button:hover {
         color: #dc3545;
     }
+body.light-theme .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+    body.light-theme .btn-primary:hover {
+        background-color: #0056b3;
+        color: #e9ecef;
+    }
+
+
+body.dark-theme .btn-primary {
+    background-color: #222;
+    color: #fff;
+}
+
+    body.dark-theme .btn-primary:hover {
+        background-color: #0a0c45;
+        color: #f8f9fa;
+    }
 
 .popup-form h5 {
     margin-bottom: 10px;

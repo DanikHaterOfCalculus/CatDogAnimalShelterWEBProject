@@ -609,7 +609,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p class="card-text">Age: ${pet.age} | Gender: ${pet.gender}</p>
                     <p class="card-text">${pet.description}</p>
                     <a href="../adopt/adopt.html" class="btn btn-outline-primary">Adopt Now</a>
-                    <button id="${pet.buttonId}" class="btn btn-outline-secondary">I have something to say...</button>
+                    <button id="${pet.buttonId}" class="btn btn-outline-primary">I have something to say...</button>
                 </div>
             `;
             cardDeck.appendChild(petCard);
