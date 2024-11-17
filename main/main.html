@@ -53,12 +53,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="..\contact\contact.html">Contact</a>
                     </li>
-          
+
                 </ul>
                 <!-- Theme toggle and login/logout buttons -->
                 <button id="toggleTheme" class="btn theme-toggle-btn">🌙</button>
                 <button id="loginBtn" class="btn btn-primary ml-3">Log in</button>
-                <button id="registerBtn" class="btn btn-success ml-2">Register</button>
+                <button id="registerBtn" class="btn btn-primary ml-2">Register</button>
 
                 <span id="usernameDisplay" class="ml-3 d-none"></span>
                 <button id="logoutBtn" class="btn btn-danger ml-2 d-none">
@@ -94,7 +94,7 @@
             <label for="confirmPassword">Confirm Password:</label>
             <input type="password" id="confirmPassword" name="confirmPassword" required />
 
-            <button type="submit">Register</button>
+            <button type="submit" id="submitReg">Register</button>
         </form>
     </div>
 
@@ -222,24 +222,21 @@
     <!-- Floating phone icon for contact -->
     <div class="floating-phone-icon" id="phoneIcon">📞</div>
     <!-- Popup form for contact inquiries -->
+    <!-- Popup form for contact inquiries -->
     <div class="popup-form light-theme" id="popupForm">
-        <button class="btn btn-secondary close-button" id="closePopup">
-            <i class="bi bi-x"></i>
-        </button>
+        <button class="btn btn-secondary close-button" id="closePopup">X</button>
         <h5>Any questions?</h5>
         <h5>Contact us!</h5>
-        <p>
-            If you have any questions, feel free to reach out. We’re here to help!
-        </p>
+        <p>If you have any questions, feel free to reach out. We’re here to help!</p>
         <form id="contactForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required />
+            <label for="contactName">Name:</label>
+            <input type="text" id="contactName" name="name" required />
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
+            <label for="contactEmail">Email:</label>
+            <input type="email" id="contactEmail" name="email" required />
 
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+            <label for="contactMessage">Message:</label>
+            <textarea id="contactMessage" name="message" rows="4" required></textarea>
 
             <button type="submit">Send</button>
         </form>

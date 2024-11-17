@@ -102,6 +102,7 @@ header {
     .form-group textarea {
         resize: vertical;
     }
+
 .carousel-inner img {
     width: 100%;
     height: 500px; /* Задайте высоту, подходящую для ваших нужд */
@@ -347,10 +348,10 @@ body.dark-theme .card {
     .accordion-content.show {
         opacity: 1;
     }
+
 body.light-theme .btn-primary {
     background-color: #007bff;
     color: #fff;
-   
 }
 
     body.light-theme .btn-primary:hover {
@@ -359,10 +360,9 @@ body.light-theme .btn-primary {
     }
 
 
-body.dark-theme .btn-primary{
+body.dark-theme .btn-primary {
     background-color: #222;
     color: #fff;
-
 }
 
     body.dark-theme .btn-primary:hover {
@@ -1068,9 +1068,12 @@ html, body {
     color: #fff;
 }
 
+/* Общие стили для popup */
 .login-popup {
     background-color: #fff;
-    color: #000;
+    color: #000000;
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .dark-theme .login-popup {
@@ -1078,16 +1081,69 @@ html, body {
     color: #fff;
 }
 
+/* Стиль для кнопки логина */
 #loginBtn {
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
     color: #fff;
     border: none;
 }
 
 .dark-theme #loginBtn {
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
     color: #fff;
 }
+
+/* Стиль кнопки submit */
+body.dark-theme #submitLogin {
+    background-color: #121E26; /* Цвет фона кнопки */
+    color: #fff; /* Цвет текста */
+    border: none; /* Убирает обводку */
+    padding: 6px 12px; /* Отступы внутри кнопки */
+    font-size: 16px; /* Размер шрифта */
+    border-radius: 6px; /* Закругленные углы */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background-color 0.3s, transform 0.3s; /* Плавный переход */
+}
+
+body.light-theme #submitLogin {
+    background-color: #007bff; /* Цвет фона кнопки */
+    color: #fff; /* Цвет текста */
+    border: none; /* Убирает обводку */
+    padding: 6px 12px; /* Отступы внутри кнопки */
+    font-size: 16px; /* Размер шрифта */
+    border-radius: 6px; /* Закругленные углы */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background-color 0.3s, transform 0.3s; /* Плавный переход */
+}
+
+/* Стили для полей ввода */
+.login-popup input {
+    width: 100%; /* Занимает всю ширину родительского контейнера */
+    padding: 10px; /* Отступы внутри поля */
+    margin-top: 5px; /* Отступ сверху для отделения от лейбла */
+    margin-bottom: 15px; /* Отступ снизу между полем и кнопкой */
+    border-radius: 6px; /* Закругленные углы */
+    border: 1px solid #ccc; /* Светлая обводка */
+    box-sizing: border-box; /* Учитывать padding и border в общей ширине */
+}
+
+.dark-theme .login-popup input {
+    background-color: #333; /* Тёмный фон для поля ввода */
+    color: #fff; /* Белый текст */
+    border: 1px solid #555; /* Тёмная обводка */
+}
+
+/* Стили для лейблов */
+.login-popup label {
+    display: block; /* Лейбл будет блоком, чтобы текст был на отдельной строке */
+    margin-bottom: 5px; /* Отступ снизу для разделения с полем ввода */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+.dark-theme .login-popup label {
+    color: #fff; /* Белый цвет текста в тёмной теме */
+}
+
 
 #logoutBtn {
     background-color: rgba(0,0,0,0);
@@ -1097,7 +1153,7 @@ html, body {
 
 .dark-theme #logoutBtn {
     background-color: rgba(0,0,0,0);
-    / color: #fff;
+    color: #fff;
 }
 
 #submitLogin {
@@ -1111,11 +1167,12 @@ html, body {
     color: #fff;
     border: none;
 }
+
 .register-popup {
     position: absolute;
     background-color: #fff;
     border: 1px solid #ccc;
-    padding: 15px;
+    padding: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     display: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -1128,13 +1185,13 @@ html, body {
         transform: translateY(10px);
     }
 
-/* Theme-specific styles */
+/* Темная тема */
 .dark-theme .register-popup {
     background-color: #121E26;
     color: #fff;
 }
 
-/* Register button style */
+/* Стили для кнопки регистрации */
 #registerBtn {
     background-color: rgba(0, 0, 0, 0);
     color: #fff;
@@ -1147,8 +1204,142 @@ html, body {
     color: #fff;
 }
 
-#registerForm button {
-    background-color: rgba(0, 0, 0, 0.025);
-    color: #fff;
-    border: none;
+/* Стили для кнопки submit регистрации */
+body.light-theme #submitReg {
+    background-color: #007bff; /* Цвет фона кнопки */
+    color: #fff; /* Цвет текста */
+    border: none; /* Убирает обводку */
+    padding: 6px 12px; /* Отступы внутри кнопки */
+    font-size: 16px; /* Размер шрифта */
+    border-radius: 6px; /* Закругленные углы */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background-color 0.3s, transform 0.3s; /* Плавный переход */
 }
+
+body.dark-theme #submitReg {
+    background-color: #121E26; /* Цвет фона кнопки */
+    color: #fff; /* Цвет текста */
+    border: none; /* Убирает обводку */
+    padding: 6px 12px; /* Отступы внутри кнопки */
+    font-size: 16px; /* Размер шрифта */
+    border-radius: 6px; /* Закругленные углы */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background-color 0.3s, transform 0.3s; /* Плавный переход */
+}
+
+body.dark-theme #submitLogin:hover {
+    background-color: #0a0c45;
+}
+
+body.dark-theme #submitReg:hover {
+    background-color: #0a0c45
+}
+
+body.light-theme #submitLogin:hover {
+    background-color: #0a0c45
+}
+
+body.light-theme #submitReg:hover {
+    background-color: #0a0c45
+}
+/* Стили для полей ввода в форме регистрации */
+.register-popup input {
+    width: 100%; /* Занимает всю ширину родительского контейнера */
+    padding: 10px; /* Отступы внутри поля */
+    margin-top: 5px; /* Отступ сверху для отделения от лейбла */
+    margin-bottom: 15px; /* Отступ снизу между полем и кнопкой */
+    border-radius: 6px; /* Закругленные углы */
+    border: 1px solid #ccc; /* Светлая обводка */
+    box-sizing: border-box; /* Учитывать padding и border в общей ширине */
+}
+
+.dark-theme .register-popup input {
+    background-color: #333; /* Тёмный фон для поля ввода */
+    color: #fff; /* Белый текст */
+    border: 1px solid #555; /* Тёмная обводка */
+}
+
+/* Стили для лейблов в форме регистрации */
+.register-popup label {
+    display: block; /* Лейбл будет блоком, чтобы текст был на отдельной строке */
+    margin-bottom: 5px; /* Отступ снизу для разделения с полем ввода */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+.dark-theme .register-popup label {
+    color: #fff; /* Белый цвет текста в тёмной теме */
+}
+/* Общие стили для попапа */
+.popup-form button {
+    margin-top: 10px;
+}
+
+/* Form fields styles */
+.popup-form input,
+.popup-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.popup-form textarea {
+    resize: vertical;
+}
+
+/* Button styles */
+.popup-form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+    .popup-form button:hover {
+        background-color: #0056b3;
+    }
+
+/* Dark Theme Styles */
+.dark-theme .popup-form {
+    background-color: #121E26;
+    color: #fff;
+}
+
+.light-theme .popup-form {
+    background-color: #fff;
+    color: #000000;
+}
+
+.dark-theme .popup-form input,
+.dark-theme .popup-form textarea {
+    background-color: #555;
+    color: #fff;
+    border: 1px solid #777;
+}
+
+.dark-theme .popup-form button {
+    background-color: #444;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    padding: 0;
+    line-height: 20px;
+}
+
+    .close-button:hover {
+        color: red; /* Change color on hover */
+    }

@@ -50,7 +50,22 @@
         navbarLinks[index].focus();
         currentIndex = index;
     }
+    // Function to show the contact form popup
+    document.getElementById("phoneIcon").addEventListener("click", function () {
+        document.getElementById("popupForm").classList.add("show");
+    });
 
+    // Function to close the contact form popup
+    document.getElementById("closePopup").addEventListener("click", function () {
+        document.getElementById("popupForm").classList.remove("show");
+    });
+
+    // Function to handle form submission (for demo purposes)
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert("Your message has been sent!");
+        document.getElementById("popupForm").classList.remove("show");
+    });
     document.addEventListener("keydown", function (event) {
         if (event.key === "ArrowRight") {
             setFocus(currentIndex + 1);

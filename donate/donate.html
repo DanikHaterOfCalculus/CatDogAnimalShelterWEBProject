@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="..\Script.js"></script>
     <!-- Link to custom JavaScript -->
+    
   </head>
   <body class="light-theme">
       <!-- Navigation Bar -->
@@ -56,7 +57,7 @@
                   <!-- Theme Toggle and Login Buttons -->
                   <button id="toggleTheme" class="btn theme-toggle-btn">🌙</button>
                   <button id="loginBtn" class="btn btn-primary ml-3">Log in</button>
-                  <button id="registerBtn" class="btn btn-success ml-2">Register</button>
+                  <button id="registerBtn" class="btn btn-primary ml-2">Register</button>
 
                   <span id="usernameDisplay" class="ml-3 d-none"></span>
                   <button id="logoutBtn" class="btn btn-danger ml-2 d-none">
@@ -92,7 +93,7 @@
               <label for="confirmPassword">Confirm Password:</label>
               <input type="password" id="confirmPassword" name="confirmPassword" required />
 
-              <button type="submit">Register</button>
+              <button type="submit" id="submitReg">Register</button>
           </form>
       </div>
 
@@ -170,20 +171,27 @@
       </main>
       <!-- Floating Phone Icon -->
       <div class="floating-phone-icon" id="phoneIcon">📞</div>
-      <!-- Popup Form for Contact -->
+      <!-- Popup form for contact inquiries -->
+      <!-- Popup form for contact inquiries -->
       <div class="popup-form light-theme" id="popupForm">
-          <button class="btn btn-secondary close-button" id="closePopup">
-              <i class="bi bi-x"></i>
-          </button>
+          <button class="btn btn-secondary close-button" id="closePopup">X</button>
           <h5>Any questions?</h5>
           <h5>Contact us!</h5>
-          <p>
-              If you have any questions, feel free to reach out. We’re here to help!
-          </p>
-          <div class="align-items-center mt-3">
-              <a href="..\contact\contact.html" class="btn btn-primary">Go to Contact Page</a>
-          </div>
+          <p>If you have any questions, feel free to reach out. We’re here to help!</p>
+          <form id="contactForm">
+              <label for="contactName">Name:</label>
+              <input type="text" id="contactName" name="name" required />
+
+              <label for="contactEmail">Email:</label>
+              <input type="email" id="contactEmail" name="email" required />
+
+              <label for="contactMessage">Message:</label>
+              <textarea id="contactMessage" name="message" rows="4" required></textarea>
+
+              <button type="submit">Send</button>
+          </form>
       </div>
+
       <!-- Footer Section -->
       <footer class="text-center mt-5 p-4 bg-primary">
           <p class="text-white mb-0">Created by Turzhanov Danial, Ussenov Tamerlan, Kurbanaliyeva Rakhiya - September 2024</p>
@@ -197,5 +205,7 @@
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+     
   </body>
+
 </html>
