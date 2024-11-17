@@ -355,3 +355,45 @@ body.dark-theme .card {
     color: #fff;
     border: none;
 }
+/* Register popup style (similar to login-popup) */
+.register-popup {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+    .register-popup.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(10px);
+    }
+
+/* Theme-specific styles */
+.dark-theme .register-popup {
+    background-color: #121E26;
+    color: #fff;
+}
+
+/* Register button style */
+#registerBtn {
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    border: none;
+    transition: color 0.3s ease;
+}
+
+.dark-theme #registerBtn {
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+}
+
+#registerForm button {
+    background-color: rgba(0, 0, 0, 0.025);
+    color: #fff;
+    border: none;
+}

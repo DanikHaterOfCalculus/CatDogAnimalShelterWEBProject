@@ -52,6 +52,8 @@
                   <!-- Theme toggle and login buttons -->
                   <button id="toggleTheme" class="btn theme-toggle-btn">🌙</button>
                   <button id="loginBtn" class="btn btn-primary ml-3">Log in</button>
+                  <button id="registerBtn" class="btn btn-success ml-2">Register</button>
+
                   <span id="usernameDisplay" class="ml-3 d-none"></span>
                   <button id="logoutBtn" class="btn btn-danger ml-2 d-none">
                       Logout
@@ -59,8 +61,7 @@
               </div>
           </div>
       </nav>
-
-      <!-- Login Popup Form -->
+      <!-- Login popup form -->
       <div class="login-popup" id="loginPopup">
           <h2>Log in</h2>
           <form id="loginForm">
@@ -73,7 +74,23 @@
               <button type="submit" id="submitLogin">Log in</button>
           </form>
       </div>
+      <div class="register-popup" id="registerPopup">
+          <h2>Register</h2>
+          <form id="registerForm">
+              <label for="regUsername">Username:</label>
+              <input type="text" id="regUsername" name="username" required />
+              <label for="regEmail">Email:</label>
+              <input type="email" id="regEmail" name="email" required />
 
+              <label for="regPassword">Password:</label>
+              <input type="password" id="regPassword" name="password" required />
+
+              <label for="confirmPassword">Confirm Password:</label>
+              <input type="password" id="confirmPassword" name="confirmPassword" required />
+
+              <button type="submit">Register</button>
+          </form>
+      </div>
       <!-- Main Content Area -->
       <main class="petmain">
           <section class="text-center mb-5">

@@ -248,9 +248,10 @@
 });
 document.addEventListener("DOMContentLoaded", function () {
     const donationForm = document.getElementById("donationForm");
+
+    // Функция для сброса формы
     window.resetDonationForm = function () {
         donationForm.reset();
-
         document.querySelectorAll(".error").forEach((el) => el.remove());
     };
 
@@ -265,6 +266,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".error").forEach((el) => el.remove());
 
         let isValid = true;
+
+        // Валидация полей
         if (name === "") {
             showError("name", "Name is required.");
             isValid = false;
@@ -277,11 +280,21 @@ document.addEventListener("DOMContentLoaded", function () {
             showError("amount", "Please enter a valid donation amount.");
             isValid = false;
         }
+
+        // Если форма валидна, начисляем очки
         if (isValid) {
-            alert("Donation submitted successfully!");
+            // Преобразуем amount в число и увеличиваем очки
+            const donationAmount = Number(amount);
+            let points = parseInt(localStorage.getItem("points")) || 0;
+            points += donationAmount; // Добавляем количество пожертвованных средств как очки
+            localStorage.setItem("points", points); // Сохраняем обновленные очки в localStorage
+
+            // Отображаем уведомление о начисленных очках
+            alert(`Donation submitted successfully! You've earned ${donationAmount} points.`);
         }
     });
 
+    // Функция для отображения ошибки
     function showError(id, message) {
         const element = document.getElementById(id);
         const error = document.createElement("small");
@@ -290,6 +303,16 @@ document.addEventListener("DOMContentLoaded", function () {
         element.parentNode.appendChild(error);
     }
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const pointsDisplay = document.getElementById("pointsDisplay");
+
+    // Получаем текущие очки из localStorage
+    let points = parseInt(localStorage.getItem("points")) || 0;
+    
+    // Обновляем отображение очков на странице профиля
+    pointsDisplay.textContent = points;
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     const accordionItems = document.querySelectorAll(".accordion-item");
     const meowSound = new Audio('meow.mp3'); // Укажите путь к звуку
@@ -321,7 +344,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
 document.addEventListener("DOMContentLoaded", function () {
     const loginBtn = document.getElementById("loginBtn");
     const loginPopup = document.getElementById("loginPopup");
@@ -330,11 +352,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordInput = document.getElementById("password");
     const usernameDisplay = document.getElementById("usernameDisplay");
     const logoutBtn = document.getElementById("logoutBtn");
+    const registerBtn = document.getElementById("registerBtn");
+    const registerPopup = document.getElementById("registerPopup");
+    const registerForm = document.getElementById("registerForm");
+
     const savedUsername = localStorage.getItem("username");
     if (savedUsername) {
         showLoggedIn(savedUsername);
     }
 
+    // Login button behavior
     loginBtn.addEventListener("click", function () {
         const btnRect = loginBtn.getBoundingClientRect();
         loginPopup.style.left = `${btnRect.left}px`;
@@ -342,10 +369,21 @@ document.addEventListener("DOMContentLoaded", function () {
         loginPopup.classList.toggle("show");
     });
 
+    // Register button behavior
+    registerBtn.addEventListener("click", function () {
+        const btnRect = registerBtn.getBoundingClientRect();
+        registerPopup.style.left = `${btnRect.left}px`;
+        registerPopup.style.top = `${btnRect.bottom + window.scrollY}px`;
+        registerPopup.classList.toggle("show");
+    });
+
+    // Login submission
     submitLogin.addEventListener("click", function () {
         const username = usernameInput.value.trim();
         const password = passwordInput.value.trim();
-        if (username === "Danial" && password === "123456") {
+        const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || {};
+
+        if (registeredUsers[username] && registeredUsers[username].password === password) {
             localStorage.setItem("username", username);
             showLoggedIn(username);
             loginPopup.classList.remove("show");
@@ -354,25 +392,78 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Registration form submission
+    registerForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const regUsername = document.getElementById("regUsername").value.trim();
+        const regPassword = document.getElementById("regPassword").value.trim();
+        const confirmPassword = document.getElementById("confirmPassword").value.trim();
+        const email = document.getElementById("regEmail").value.trim();
+
+        if (regPassword !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+
+        if (!isValidEmail(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || {};
+
+        if (registeredUsers[regUsername]) {
+            alert("Username already exists!");
+            return;
+        }
+
+        // Save new user with email
+        registeredUsers[regUsername] = {
+            password: regPassword,
+            email: email
+        };
+        localStorage.setItem("registeredUsers", JSON.stringify(registeredUsers));
+
+        alert("Registration successful! You can now log in.");
+        registerPopup.classList.remove("show");
+    });
+
+    // Validate email format using regex
+    function isValidEmail(email) {
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailRegex.test(email);
+    }
+
+    // Logout button behavior
     logoutBtn.addEventListener("click", function () {
         localStorage.removeItem("username");
         resetLoginState();
     });
 
+    // Show logged in state
     function showLoggedIn(username) {
         loginBtn.classList.add("d-none");
+        registerBtn.classList.add("d-none");
         usernameDisplay.classList.remove("d-none");
         usernameDisplay.textContent = `Welcome, ${username}`;
+        usernameDisplay.style.cursor = 'pointer'; // Add cursor style to indicate a link
+        usernameDisplay.addEventListener('click', function () {
+            window.location.href = '../profile/profile.html'; // Redirect to profile page
+        });
         logoutBtn.classList.remove("d-none");
     }
 
+    // Reset login state
     function resetLoginState() {
         loginBtn.classList.remove("d-none");
+        registerBtn.classList.remove("d-none");
         usernameDisplay.classList.add("d-none");
         usernameDisplay.textContent = "";
         logoutBtn.classList.add("d-none");
     }
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("imageModal");
@@ -486,7 +577,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentPage = 1;
     const petsPerPage = 4;
-
+    function fetchCatImage() {
+        return fetch('https://cataas.com/cat')
+            .then(response => response.blob())
+            .then(blob => URL.createObjectURL(blob))
+            .catch(error => {
+                console.error("Error fetching cat image:", error);
+                return 'https://via.placeholder.com/150'; // Placeholder if error occurs
+            });
+    }
     function displayPets(filteredPets) {
         const cardDeck = document.querySelector(".card-deck");
         if (!cardDeck) {
