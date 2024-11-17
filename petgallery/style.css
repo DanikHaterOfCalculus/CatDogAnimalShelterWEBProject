@@ -136,6 +136,17 @@ body.dark-theme #filterButton {
     }
 
 
+#catFact {
+    color: #000000;
+    font-style:italic;
+}
+
+/* Dark theme styles */
+body.dark-theme #catFact {
+    font-style:italic;
+    color: white; 
+}
+
 
     
 .card .btn.light-theme {

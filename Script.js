@@ -78,7 +78,7 @@
 
 
     setFocus(0);
-
+    fetchCatFact(); // API MeowFacts
 
     const meowSound = new Audio("meow.mp3");
 
@@ -592,15 +592,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentPage = 1;
     const petsPerPage = 4;
-    function fetchCatImage() {
-        return fetch('https://cataas.com/cat')
-            .then(response => response.blob())
-            .then(blob => URL.createObjectURL(blob))
-            .catch(error => {
-                console.error("Error fetching cat image:", error);
-                return 'https://via.placeholder.com/150'; // Placeholder if error occurs
-            });
-    }
+   
     function displayPets(filteredPets) {
         const cardDeck = document.querySelector(".card-deck");
         if (!cardDeck) {
@@ -664,6 +656,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         pagination.appendChild(nextButton);
     }
+    // Функция для получения случайного факта о кошках
+    
 
     function applyFilters() {
         const petType = document.getElementById("petType").value;
@@ -772,6 +766,23 @@ document.addEventListener("DOMContentLoaded", function () {
             input.classList.remove("is-invalid");
         });
     };
+});
+document.addEventListener('DOMContentLoaded', () => { //API meowfacts
+    async function fetchCatFact() {
+        try {
+            const response = await fetch('https://meowfacts.herokuapp.com/');
+            if (!response.ok) {
+                throw new Error(`Ошибка: ${response.statusText}`);
+            }
+            const data = await response.json();
+            document.getElementById('catFact').innerText = data.data[0];
+        } catch (error) {
+            console.error('Ошибка при загрузке факта о кошках:', error);
+            document.getElementById('catFact').innerText = 'Не удалось загрузить факт о кошках. Попробуйте позже.';
+        }
+    }
+
+    fetchCatFact();
 });
 
 
