@@ -102,6 +102,11 @@ header {
     .form-group textarea {
         resize: vertical;
     }
+.carousel-inner img {
+    width: 100%;
+    height: 500px; /* Задайте высоту, подходящую для ваших нужд */
+    object-fit: cover; /* Это позволяет сохранить пропорции изображений, обрезая их по размеру контейнера */
+}
 
 button {
     cursor: pointer;
