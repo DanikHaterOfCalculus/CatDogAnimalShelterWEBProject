@@ -1274,7 +1274,6 @@ body.light-theme #submitReg:hover {
     margin-top: 10px;
 }
 
-/* Form fields styles */
 .popup-form input,
 .popup-form textarea {
     width: 100%;
@@ -1290,7 +1289,6 @@ body.light-theme #submitReg:hover {
     resize: vertical;
 }
 
-/* Button styles */
 .popup-form button {
     background-color: #007bff;
     color: #fff;
@@ -1304,7 +1302,7 @@ body.light-theme #submitReg:hover {
         background-color: #0056b3;
     }
 
-/* Dark Theme Styles */
+
 .dark-theme .popup-form {
     background-color: #121E26;
     color: #fff;
@@ -1341,5 +1339,10 @@ body.light-theme #submitReg:hover {
 }
 
     .close-button:hover {
-        color: red; /* Change color on hover */
+        color: red; 
     }
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    display: block; 
+}

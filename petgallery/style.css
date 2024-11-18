@@ -840,3 +840,8 @@ body.dark-theme #submitReg {
     .close-button:hover {
         color: red; /* Change color on hover */
     }
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    display: block; /* Ensure they are visible when errors occur */
+}

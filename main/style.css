@@ -923,3 +923,8 @@ body.light-theme #submitLogin:hover {
 body.light-theme #submitReg:hover {
     background-color: #0a0c45
 }
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    display: block; /* Ensure they are visible when errors occur */
+}

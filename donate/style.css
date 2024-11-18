@@ -517,5 +517,10 @@ body.dark-theme #submitReg {
 }
 
     .close-button:hover {
-        color: red; /* Change color on hover */
+        color: red; 
     }
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    display: block; 
+}

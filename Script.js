@@ -371,9 +371,27 @@ document.addEventListener("DOMContentLoaded", function () {
     const registerPopup = document.getElementById("registerPopup");
     const registerForm = document.getElementById("registerForm");
 
+    // Error message elements
+    const usernameError = document.getElementById("usernameError");
+    const passwordError = document.getElementById("passwordError");
+    const regUsernameError = document.getElementById("regUsernameError");
+    const regPasswordError = document.getElementById("regPasswordError");
+    const confirmPasswordError = document.getElementById("confirmPasswordError");
+    const regEmailError = document.getElementById("regEmailError");
+
     const savedUsername = localStorage.getItem("username");
     if (savedUsername) {
         showLoggedIn(savedUsername);
+    }
+
+    // Clear error messages
+    function clearErrors() {
+        usernameError.textContent = "";
+        passwordError.textContent = "";
+        regUsernameError.textContent = "";
+        regPasswordError.textContent = "";
+        confirmPasswordError.textContent = "";
+        regEmailError.textContent = "";
     }
 
     // Login button behavior
@@ -394,54 +412,69 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Login submission
     submitLogin.addEventListener("click", function () {
+        clearErrors();
         const username = usernameInput.value.trim();
         const password = passwordInput.value.trim();
         const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || {};
 
+        if (!username) {
+            usernameError.textContent = "Username is required.";
+            return;
+        }
+        if (!password) {
+            passwordError.textContent = "Password is required.";
+            return;
+        }
         if (registeredUsers[username] && registeredUsers[username].password === password) {
             localStorage.setItem("username", username);
             showLoggedIn(username);
             loginPopup.classList.remove("show");
         } else {
-            alert("Incorrect login or password");
+            passwordError.textContent = "Incorrect username or password.";
         }
     });
 
     // Registration form submission
     registerForm.addEventListener("submit", function (event) {
         event.preventDefault();
+        clearErrors();
 
         const regUsername = document.getElementById("regUsername").value.trim();
         const regPassword = document.getElementById("regPassword").value.trim();
         const confirmPassword = document.getElementById("confirmPassword").value.trim();
         const email = document.getElementById("regEmail").value.trim();
 
+        let hasError = false;
+
+        if (!regUsername) {
+            regUsernameError.textContent = "Username is required.";
+            hasError = true;
+        }
+        if (!regPassword) {
+            regPasswordError.textContent = "Password is required.";
+            hasError = true;
+        }
         if (regPassword !== confirmPassword) {
-            alert("Passwords do not match!");
-            return;
+            confirmPasswordError.textContent = "Passwords do not match.";
+            hasError = true;
         }
-
         if (!isValidEmail(email)) {
-            alert("Please enter a valid email address.");
-            return;
+            regEmailError.textContent = "Invalid email format.";
+            hasError = true;
         }
 
-        let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || {};
-
+        const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || {};
         if (registeredUsers[regUsername]) {
-            alert("Username already exists!");
-            return;
+            regUsernameError.textContent = "Username already exists.";
+            hasError = true;
         }
 
-        // Save new user with email
-        registeredUsers[regUsername] = {
-            password: regPassword,
-            email: email
-        };
-        localStorage.setItem("registeredUsers", JSON.stringify(registeredUsers));
-
-        alert("Registration successful! You can now log in.");
-        registerPopup.classList.remove("show");
+        if (!hasError) {
+            registeredUsers[regUsername] = { password: regPassword, email: email };
+            localStorage.setItem("registeredUsers", JSON.stringify(registeredUsers));
+            alert("Registration successful! You can now log in.");
+            registerPopup.classList.remove("show");
+        }
     });
 
     // Validate email format using regex
@@ -468,7 +501,30 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         logoutBtn.classList.remove("d-none");
     }
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form submission and page reload
+        clearErrors(); // Clear previous error messages
 
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value.trim();
+        const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || {};
+
+        if (!username) {
+            usernameError.textContent = "Username is required.";
+            return;
+        }
+        if (!password) {
+            passwordError.textContent = "Password is required.";
+            return;
+        }
+        if (registeredUsers[username] && registeredUsers[username].password === password) {
+            localStorage.setItem("username", username);
+            showLoggedIn(username);
+            loginPopup.classList.remove("show");
+        } else {
+            passwordError.textContent = "Incorrect username or password.";
+        }
+    });
     // Reset login state
     function resetLoginState() {
         loginBtn.classList.remove("d-none");
@@ -478,6 +534,7 @@ document.addEventListener("DOMContentLoaded", function () {
         logoutBtn.classList.add("d-none");
     }
 });
+// Login submission
 
 
 document.addEventListener("DOMContentLoaded", () => {
