@@ -271,8 +271,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     donationForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        console.log("Form submitted!");
+      
 
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
@@ -303,6 +302,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let points = parseInt(localStorage.getItem("points")) || 0;
             points += donationAmount; // Добавляем количество пожертвованных средств как очки
             localStorage.setItem("points", points); // Сохраняем обновленные очки в localStorage
+            resetDonationForm()
      
             
 
