@@ -302,7 +302,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let points = parseInt(localStorage.getItem("points")) || 0;
             points += donationAmount; // Добавляем количество пожертвованных средств как очки
             localStorage.setItem("points", points); // Сохраняем обновленные очки в localStorage
-            resetDonationForm()
+            resetDonationForm();
      
             
 
