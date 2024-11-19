@@ -304,8 +304,7 @@ document.addEventListener("DOMContentLoaded", function () {
             points += donationAmount; // Добавляем количество пожертвованных средств как очки
             localStorage.setItem("points", points); // Сохраняем обновленные очки в localStorage
      
-            donationForm.submit()
-
+            
 
             
         }
